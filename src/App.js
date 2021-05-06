@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import data from './foods.json';
+import 'bulma/css/bulma.css';
+import FoodBox from './components/FoodBox';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// got stuck horably started over again but didn´t came far..
+class App extends Component {
+  state = {
+    food: data
+  }
+
+  handleAddFood = (food)=>{
+    this.setState({
+      food:[food, ...this.state.food]
+    })
+  }
+  
+  handleShowForm = ()=>{
+
+  }
+
+  handleSubmit = ()=>{
+
+  }
+ const {name, calories}= e.target
+ let neFood = {
+   name: name.value,
+   calories.value
+ }
+
+
+
+
+
+  render(){
+    const {food} = this.state;
+    return(
+      <div>
+      
+      {food.map((food=>{
+        return <FoodBox anyfood = {food}/>
+      }))}
+
+      </div>
+    )
+  }
+
 }
 
 export default App;
